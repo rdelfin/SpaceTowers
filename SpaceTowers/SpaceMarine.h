@@ -41,9 +41,9 @@ public:
     virtual void Update(GameTime* gameTime, vector<Character*> enemies);
     
 	/*!
-	 *  Draw cycle for the Space Marine. It simply calles the Draw from its parent class, character
+	 *  Draw cycle for the Space Marine. It simply calls the Draw from its parent class, character
 	 *
-	 *  @param camPos Position of the camera. More detailed explanation can be found in teh Character
+	 *  @param camPos Position of the camera. More detailed explanation can be found in the Character
      *  class.
 	 */
 	virtual void Draw(Vector2 camPos);

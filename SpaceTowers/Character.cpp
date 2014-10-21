@@ -45,7 +45,7 @@ void Character::Update(GameTime* gameTime, vector<Character*> enemies/*, Tower* 
     attackAnim->Update(gameTime);
     
     //Check for enemies
-    attacking = false;
+    bool tempAttacking = false;
     
     //Update to change to attack state
     for(unsigned int i = 0; i < enemies.size(); i++)
@@ -56,15 +56,22 @@ void Character::Update(GameTime* gameTime, vector<Character*> enemies/*, Tower* 
 
         if(differenceX < range && differenceX >= 0)
         {
-            attacking = true;
+			if(!attacking) {
+				//starts firing as soon as enemy is seen
+				fireCounter = fireRate;
+			}
+			
+			tempAttacking = true;
             break;
         }
     }
+	
+	attacking = tempAttacking;
     
     //Fire bullets
     fireBullets(gameTime, enemies);
     
-    //Cleares all dead bullets from list
+    //Clears all dead bullets from list
     cleanBulletList();
     
     //Set velocity
@@ -85,6 +92,13 @@ void Character::Draw(Vector2 camPos)
         attackAnim->Draw(position - camPos);
     else
         GameObject::Draw(camPos);
+
+	//Health bar
+	int barWidth = 30 * hp / maxHp;
+	int width = getFrameSize().x;
+	int startX = position.x + width / 2 - barWidth / 2 - camPos.x;
+	int endX = position.x + width / 2 + barWidth / 2 - camPos.x;
+	al_draw_filled_rectangle(startX, position.y - 5 - camPos.y, endX, position.y - camPos.y, al_map_rgb(0, 255, 0));
 }
 
 bool Character::isDead() { return hp <= 0; }

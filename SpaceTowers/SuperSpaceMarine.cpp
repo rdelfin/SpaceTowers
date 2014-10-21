@@ -20,7 +20,7 @@ SuperSpaceMarine::SuperSpaceMarine()
 }
 
 SuperSpaceMarine::SuperSpaceMarine(Vector2 initialPosition, bool goingRight)
-: Character("assets/img/characters/superSpaceMarineWalking.png", Vector2(8, 1), 100, "assets/img/characters/superSpaceMarineAttack.png", Vector2(1, 1), 200, initialPosition, 0.12, 100, 200, 150, goingRight, new ProjectileGenerator(0.3, 10, goingRight, "assets/img/characters/bullet2.png", Vector2(2, 1), 50))
+: Character("assets/img/characters/superSpaceMarineWalking.png", Vector2(8, 1), 100, "assets/img/characters/superSpaceMarineAttack.png", Vector2(1, 1), 200, initialPosition, 0.12, 100, 250, 150, goingRight, new ProjectileGenerator(0.3, 10, goingRight, "assets/img/characters/bullet2.png", Vector2(2, 1), 50))
 {
     
 }

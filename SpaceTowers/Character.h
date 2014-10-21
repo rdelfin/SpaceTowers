@@ -88,7 +88,12 @@ protected:
     vector<Projectile*> projectile;
     
     ProjectileGenerator* pGenerator;
-    
+
+	/*--------------------------------------------------------------------------------------------
+	  ----------------------------------- CONSTANTS ----------------------------------------------
+	  --------------------------------------------------------------------------------------------*/
+	static const int barWidth = 70;
+
     /*!
      *  Small routine to clean the list of bullets (delete all bullets that are declared as dead).
      */
