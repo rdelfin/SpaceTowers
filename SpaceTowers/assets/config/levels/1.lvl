@@ -1,0 +1,12 @@
+[name]=Level 1
+[width]=2000
+[background]=1.png
+[leftTower]=left1.png
+[rightTower]=right1.png
+[leftTowerOffset]=50,78
+[rightTowerOffset]=50,78
+[yCharacterOffset]=100
+[playerInitialCredit]=50
+[playerCreditsPerSecond]=1
+[AIInitialCredit]=50
+[AICreditsPerSecond]=1
