@@ -51,7 +51,7 @@ SpaceMarine::~SpaceMarine()
   ------------------------------------------------------------------------------------------------*/
 
 SpaceMarineInfo::SpaceMarineInfo(Vector2 position)
-    : CharacterInfo(1, "assets/img/Buttons/characters/marineDefault.png", "assets/img/Buttons/characters/marinePressed.png", position)
+    : CharacterInfo(2, "assets/img/Buttons/characters/marineDefault.png", "assets/img/Buttons/characters/marinePressed.png", position)
 {
     
 }

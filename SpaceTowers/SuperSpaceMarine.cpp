@@ -50,7 +50,7 @@ SuperSpaceMarine::~SuperSpaceMarine()
   ------------------------------------------------------------------------------------------------*/
 
 SuperSpaceMarineInfo::SuperSpaceMarineInfo(Vector2 position)
-: CharacterInfo(2, "assets/img/Buttons/characters/superSpaceMarineDefault.png", "assets/img/Buttons/characters/superSpaceMarinePressed.png", position)
+: CharacterInfo(4, "assets/img/Buttons/characters/superSpaceMarineDefault.png", "assets/img/Buttons/characters/superSpaceMarinePressed.png", position)
 {
     
 }
@@ -64,4 +64,4 @@ Character* SuperSpaceMarineInfo::createCharacter(COINS* coins, bool goingRight)
     }
     
     return NULL;
-}
+} 
