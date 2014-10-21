@@ -20,16 +20,15 @@ $RECYCLE.BIN/
 *.obj
 *.pch
 *.pdb
-*.vcxproj*
 *.lastbuildstate
 *.log
 *.idb
-*.suo
-*.sln
 *.ipch
 *.ilk
 *.opensdf
 *.sdf
+*.suo
+*.user
 
 # =========================
 # Operating System Files
@@ -59,3 +58,4 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+*.user

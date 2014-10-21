@@ -1,6 +1,6 @@
 /*!
  *  @header Projectile
- *  File for the Projectile and Projectile Generator clases
+ *  File for the Projectile and Projectile Generator classes
  *  @author Ricardo Delfin Garcia
  *  @version 1.0
  */

@@ -6,4 +6,4 @@ Simple video game created in C++ and Visual Studio with Allegro for graphics lib
 Contact
 -------
 
-You can contact me at [ricardo.delfin@utexas.edu]0(mailto:ricardo.delfin@utexas.edu)
+You can contact me at [ricardo.delfin@utexas.edu](mailto:ricardo.delfin@utexas.edu)
