@@ -29,6 +29,7 @@ Tower::Tower(string file, double xOffset, double yOffset, double yCharacterOffse
     }
 
     this->hp = hp;
+	this->maxHp = hp;
 }
 
 void Tower::hit(int hpHit) { this->hp -= hpHit; }
@@ -45,4 +46,7 @@ void Tower::Update(GameTime* gameTime)
 void Tower::Draw(Vector2 camPos)
 {
 	GameObject::Draw(camPos);
+
+	double barWidth = getFrameSize().x * hp / maxHp;
+	al_draw_filled_rectangle(position.x - camPos.x, position.y - barHeight - barYOffset - camPos.y, position.x + barWidth - camPos.x, position.y -barYOffset - camPos.y, al_map_rgb(0, 255, 0)); 
 }

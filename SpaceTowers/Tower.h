@@ -62,7 +62,13 @@ public:
 	void Draw(Vector2 camPos);
     
 private:
-    int hp;
+    int hp, maxHp;
     Vector2 relSpawnPoint;
     
+
+	/***************************************************************
+	 ************************ CONSTANTS ****************************
+	 **************************************************************/
+	static const int barHeight = 5;
+	static const int barYOffset = 10;
 };

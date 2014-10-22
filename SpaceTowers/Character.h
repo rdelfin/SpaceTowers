@@ -40,7 +40,7 @@ public:
      *  @param enemies   The list of all enemy characters. This is so the player knows who to fire at.
 	 *  @param tower     Enemy tower. This is used as a secondary target if no enemies are present.
      */
-    virtual void Update(GameTime* gameTime, vector<Character*> enemies/*, Tower* enemyTower*/);
+    virtual void Update(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower);
 	
     /*!
      *  Draw method for the character. This method decides which image is appropriate to be drawn
@@ -107,5 +107,5 @@ protected:
      *  @param enemies  List of the characters that are contained in the enemy Player. In other words,
      *  all the characters that can be hit by a bullet created by this character
      */
-    void fireBullets(GameTime* gameTime, vector<Character*> enemies);
+    void fireBullets(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower);
 };

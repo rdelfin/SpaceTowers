@@ -26,9 +26,9 @@ SpaceMarine::SpaceMarine(Vector2 initialPosition, bool goingRight)
 }
 
 
-void SpaceMarine::Update(GameTime* gameTime, vector<Character*> enemies)
+void SpaceMarine::Update(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower)
 {
-    Character::Update(gameTime, enemies);
+    Character::Update(gameTime, enemies, enemyTower);
 }
 
 

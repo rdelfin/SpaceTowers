@@ -39,7 +39,7 @@ Character::Character(string walkFile, Vector2 walkFrameCount, int walkMillPerFra
     }
 }
 
-void Character::Update(GameTime* gameTime, vector<Character*> enemies/*, Tower* enemyTower*/)
+void Character::Update(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower)
 {
     GameObject::Update(gameTime);
     attackAnim->Update(gameTime);
@@ -65,11 +65,22 @@ void Character::Update(GameTime* gameTime, vector<Character*> enemies/*, Tower* 
             break;
         }
     }
+
+	//Update attack state for tower specifically
+	double towerDiff = (goingRight ? enemyTower->getRectangle().x - position.x - getFrameSize().x : position.x - enemyTower->getRectangle().x - enemyTower->getRectangle().width);
+	if(towerDiff < range && towerDiff > 0) {
+		if(!attacking) {
+			//starts firing as soon as enemy is seen
+			fireCounter = fireRate;
+		}
+			
+		tempAttacking = true;
+	}
 	
 	attacking = tempAttacking;
     
     //Fire bullets
-    fireBullets(gameTime, enemies);
+	fireBullets(gameTime, enemies, enemyTower);
     
     //Clears all dead bullets from list
     cleanBulletList();
@@ -128,10 +139,10 @@ void Character::cleanBulletList()
     }
 }
 
-void Character::fireBullets(GameTime* gameTime, vector<Character*> enemies)
+void Character::fireBullets(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower)
 {
     for (unsigned int i = 0; i < projectile.size(); i++)
-        projectile[i]->Update(gameTime, enemies);
+        projectile[i]->Update(gameTime, enemies, enemyTower);
     
     if(attacking)
     {

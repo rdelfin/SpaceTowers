@@ -8,6 +8,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Tower.h"
 
 class Character;
 
@@ -31,11 +32,11 @@ public:
      *  any of the enemy, or target characters.
      *
      *  @param gameTime Instance of GameTime* that saves all the information about the time since the
-     *  last frame as well as the time since the begining of the game.
+     *  last frame as well as the time since the beginning of the game.
      *  @param enemies  List of all characters that can be hit by this bullet. In other words, the
      *  enemies, or targets of the bullet
      */
-    void Update(GameTime* gameTime, vector<Character*> enemies);
+    void Update(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower);
     
     /*!
      *  Draw method for the bullet. Simply draws the bullet on the screen

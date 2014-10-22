@@ -38,7 +38,7 @@ public:
      *  @param enemies  The vector containing all the characters this character can attack (in other
      *  words, enemy characters).
      */
-    virtual void Update(GameTime* gameTime, vector<Character*> enemies);
+    virtual void Update(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower);
     
 	/*!
 	 *  Draw cycle for the Space Marine. It simply calls the Draw from its parent class, character

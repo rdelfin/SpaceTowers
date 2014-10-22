@@ -32,20 +32,26 @@ Projectile::Projectile(Vector2 position, bool goingRight, double speed, double d
 }
 
 
-void Projectile::Update(GameTime* gameTime, vector<Character*> enemies)
+void Projectile::Update(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower)
 {
     GameObject::Update(gameTime);
     
+	GameRectangle rect = getRectangle();
+
     for(unsigned int i = 0; i < enemies.size(); i++)
     {
-        GameRectangle enemyRect = GameRectangle(enemies[i]->position.x, enemies[i]->position.y, enemies[i]->getFrameSize().x, enemies[i]->getFrameSize().y);
-        
-        if(enemies[i]->getRectangle().intersects(getRectangle()))
+        if(enemies[i]->getRectangle().intersects(rect))
         {
             dead = true;
             enemies[i]->reduceHp(damage);
 		}
     }
+
+	if(enemyTower->getRectangle().intersects(rect))
+	{
+		dead = true;
+		enemyTower->hit(damage);
+	}
 }
 
 void Projectile::Draw(Vector2 camPos)

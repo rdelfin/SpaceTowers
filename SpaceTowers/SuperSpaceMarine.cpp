@@ -26,9 +26,9 @@ SuperSpaceMarine::SuperSpaceMarine(Vector2 initialPosition, bool goingRight)
 }
 
 
-void SuperSpaceMarine::Update(GameTime* gameTime, vector<Character*> enemies)
+void SuperSpaceMarine::Update(GameTime* gameTime, vector<Character*> enemies, Tower* enemyTower)
 {
-    Character::Update(gameTime, enemies);
+    Character::Update(gameTime, enemies, enemyTower);
 }
 
 

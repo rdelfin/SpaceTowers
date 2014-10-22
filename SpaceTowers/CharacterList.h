@@ -51,7 +51,7 @@ public:
      *
      *  @return A pointer to the CharacterInfo class.
      */
-    CharacterInfo* getCharacterInfo(int index);
+    CharacterInfo* getCharacterInfo(unsigned int index);
     
     
     /*!

@@ -24,7 +24,7 @@ CharacterList::CharacterList(vector<CharacterInfo*> info)
 
 void CharacterList::Update(GameTime* gameTime, ALLEGRO_MOUSE_STATE *mouseState, ALLEGRO_MOUSE_STATE *prevMouseState, COINS *coins, bool goingRight)
 {
-    for(int i = 0; i < characters.size(); i++)
+    for(unsigned int i = 0; i < characters.size(); i++)
     {
         characters[i]->updateButton(gameTime, mouseState, prevMouseState);
         
@@ -35,11 +35,11 @@ void CharacterList::Update(GameTime* gameTime, ALLEGRO_MOUSE_STATE *mouseState, 
 
 void CharacterList::Draw()
 {
-    for(int i = 0; i < characters.size(); i++)
+    for(unsigned int i = 0; i < characters.size(); i++)
         characters[i]->drawButton();
 }
 
-CharacterInfo* CharacterList::getCharacterInfo(int index)
+CharacterInfo* CharacterList::getCharacterInfo(unsigned int index)
 {
     if(index >= characters.size() || index < 0)
         return NULL;
