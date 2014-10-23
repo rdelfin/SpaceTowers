@@ -13,12 +13,16 @@
 GameLevelState::GameLevelState(Vector2 screenSize, ALLEGRO_KEYBOARD_STATE* keyState, ALLEGRO_KEYBOARD_STATE* prevKeyState, ALLEGRO_MOUSE_STATE* mouseState, ALLEGRO_MOUSE_STATE* prevMouseState)
     : GameState(screenSize, keyState, prevKeyState, mouseState, prevMouseState), level(screenSize)
 {
-
+	paused = true;
 }
 
 void GameLevelState::Update(GameTime* gameTime)
 {
-    level.Update(gameTime, keyState, prevKeyState, mouseState, prevMouseState);
+	if(!al_key_down(keyState, ALLEGRO_KEY_P) && al_key_down(prevKeyState, ALLEGRO_KEY_P))
+		paused = !paused;
+
+	if(!paused)
+		level.Update(gameTime, keyState, prevKeyState, mouseState, prevMouseState);
 }
 
 void GameLevelState::Draw()

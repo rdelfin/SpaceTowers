@@ -28,4 +28,5 @@ public:
 	virtual void Draw();
 private:
     Level level;
+	bool paused;
 };

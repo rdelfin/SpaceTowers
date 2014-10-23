@@ -13,7 +13,7 @@
 
 /*!
  *  This class provides the List of characters that can be used by a Player. This also draws the buttons
- *  for adding the characters, if necesary.
+ *  for adding the characters, if necessary.
  *  @abstract List of characters for the Player class.
  *  @updated 2014-07-13
  */
