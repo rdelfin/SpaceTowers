@@ -38,7 +38,7 @@ void Projectile::Update(GameTime* gameTime, vector<Character*> enemies, Tower* e
     
 	GameRectangle rect = getRectangle();
 
-    for(unsigned int i = 0; i < enemies.size(); i++)
+    for(unsigned int i = 0; i < enemies.size() && !dead; i++)
     {
         if(enemies[i]->getRectangle().intersects(rect))
         {
