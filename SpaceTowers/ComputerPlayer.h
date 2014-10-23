@@ -41,5 +41,7 @@ public:
     
     
 private:
+
+	bool spawnFlag;
     
 };

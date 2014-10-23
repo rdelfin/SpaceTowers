@@ -22,6 +22,7 @@ Level::Level(Vector2 screenSize)
     vector<CharacterInfo*> infoComputer;
     vector<CharacterInfo*> infoHuman;
     infoComputer.push_back(new SpaceMarineInfo(Vector2(20, 700)));
+    infoComputer.push_back(new SuperSpaceMarineInfo(Vector2(80, 700)));
     infoHuman.push_back(new SpaceMarineInfo(Vector2(20, 700)));
     infoHuman.push_back(new SuperSpaceMarineInfo(Vector2(80, 700)));
     
@@ -35,14 +36,16 @@ Level::Level(Vector2 screenSize)
 
 void Level::Update(GameTime *gameTime, ALLEGRO_KEYBOARD_STATE *keyState, ALLEGRO_KEYBOARD_STATE *prevKeyState, ALLEGRO_MOUSE_STATE *mouseState, ALLEGRO_MOUSE_STATE *prevMouseState)
 {
-    human->Update(gameTime, keyState, prevKeyState, mouseState, prevMouseState, computer);
-    computer->Update(gameTime, keyState, prevKeyState, mouseState, prevMouseState, human);
+	if(human->alive())
+		human->Update(gameTime, keyState, prevKeyState, mouseState, prevMouseState, computer);
+	if(computer->alive())
+		computer->Update(gameTime, keyState, prevKeyState, mouseState, prevMouseState, human);
     
     bool right = al_key_down(keyState, ALLEGRO_KEY_RIGHT);
     bool left = al_key_down(keyState, ALLEGRO_KEY_LEFT);
     if(right != left)
     {
-		//Uses game time to ensure smooth movement independent of framerate
+		//Uses game time to ensure smooth movement independent of frame rate
 		double currCamSpeed = CAM_SPEED * gameTime->getMillisecondsPerFrame();
 
         if(right) {
