@@ -47,7 +47,7 @@ void Projectile::Update(GameTime* gameTime, vector<Character*> enemies, Tower* e
 		}
     }
 
-	if(enemyTower->getRectangle().intersects(rect))
+	if(enemyTower != NULL && enemyTower->getRectangle().intersects(rect))
 	{
 		dead = true;
 		enemyTower->hit(damage);

@@ -47,6 +47,8 @@ void Tower::Draw(Vector2 camPos)
 {
 	GameObject::Draw(camPos);
 
-	double barWidth = getFrameSize().x * hp / maxHp;
-	al_draw_filled_rectangle(position.x - camPos.x, position.y - barHeight - barYOffset - camPos.y, position.x + barWidth - camPos.x, position.y -barYOffset - camPos.y, al_map_rgb(0, 255, 0)); 
+	double hpProp = (double)hp / (double	)maxHp;
+	double barWidth = getFrameSize().x * hpProp;
+	ALLEGRO_COLOR color = al_map_rgb((1 - hpProp) * 255, hpProp * 255, 0);
+	al_draw_filled_rectangle(position.x - camPos.x, position.y - barHeight - barYOffset - camPos.y, position.x + barWidth - camPos.x, position.y - barYOffset - camPos.y, color); 
 }

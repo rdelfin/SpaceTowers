@@ -80,6 +80,8 @@ public:
      *  @param c Character to add to the vector
      */
     void spawnCharacter(Character* c);
+
+	bool alive();
     
     ~Player();
     
@@ -93,11 +95,6 @@ protected:
     vector<Character*> character;
     
 	Tower tower;
-    /*ALLEGRO_BITMAP* tower;
-    Vector2 towerPos;
-    
-    //Measured at the character's bottom right corner
-    Vector2 spawn;*/
     
     bool goingRight;
     

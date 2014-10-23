@@ -30,7 +30,7 @@ Player::Player(string towerFile, double xOffset, double yOffset, Vector2 mapSize
 void Player::Update(GameTime* gameTime, ALLEGRO_KEYBOARD_STATE* keyState, ALLEGRO_KEYBOARD_STATE* prevKeyState, ALLEGRO_MOUSE_STATE* mouseState, ALLEGRO_MOUSE_STATE* prevMouseState, Player* enemy)
 {
     for(unsigned int i = 0; i < character.size(); i++)
-		character[i]->Update(gameTime, enemy->character, &enemy->tower);
+		character[i]->Update(gameTime, (enemy->alive() ? enemy->character : vector<Character*>()), (enemy->alive() ? &enemy->tower : NULL));
     
     timer += gameTime->getMillisecondsPerFrame();
     
@@ -52,10 +52,12 @@ void Player::Update(GameTime* gameTime, ALLEGRO_KEYBOARD_STATE* keyState, ALLEGR
 
 void Player::Draw(Vector2 camPos)
 {
-    for(unsigned int i = 0; i < character.size(); i++)
-        character[i]->Draw(camPos);
-    
-	tower.Draw(camPos);
+	if(alive()) {
+		for(unsigned int i = 0; i < character.size(); i++)
+			character[i]->Draw(camPos);
+		
+		tower.Draw(camPos);
+	}
 }
 
 void Player::spawnCharacter(Character* c)
@@ -80,6 +82,10 @@ void Player::clearCharacterList()
         //delete character[character.size() - 1];
         character.pop_back();
     }
+}
+
+bool Player::alive() {
+	return !tower.isDestroyed();
 }
 
 Player::~Player()

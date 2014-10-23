@@ -66,15 +66,18 @@ void Character::Update(GameTime* gameTime, vector<Character*> enemies, Tower* en
         }
     }
 
-	//Update attack state for tower specifically
-	double towerDiff = (goingRight ? enemyTower->getRectangle().x - position.x - getFrameSize().x : position.x - enemyTower->getRectangle().x - enemyTower->getRectangle().width);
-	if(towerDiff < range && towerDiff > 0) {
-		if(!attacking) {
-			//starts firing as soon as enemy is seen
-			fireCounter = fireRate;
-		}
+	//Update attack state for tower specifically only if tower exists
+	if(enemyTower != NULL)
+	{
+		double towerDiff = (goingRight ? enemyTower->getRectangle().x - position.x - getFrameSize().x : position.x - enemyTower->getRectangle().x - enemyTower->getRectangle().width);
+		if(towerDiff < range && towerDiff > 0) {
+			if(!attacking) {
+				//starts firing as soon as enemy is seen
+				fireCounter = fireRate;
+			}
 			
-		tempAttacking = true;
+			tempAttacking = true;
+		}
 	}
 	
 	attacking = tempAttacking;
