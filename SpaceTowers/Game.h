@@ -16,8 +16,8 @@
  *  The main class for the entire program. From here, the @link GameState Game States @/link
  *  are managed, created and destroyed. This class extends @link BaseGame BaseGame @/link which has the
  *  entire game loop logic as well as allegro initialization. Here you will only find the state 
- *  managment.
- *  @abstract This is the main class for the entire program from where all states are inizialized
+ *  management.
+ *  @abstract This is the main class for the entire program from where all states are initialized
  *  @updated 2014-07-04
  */
 class Game : public BaseGame

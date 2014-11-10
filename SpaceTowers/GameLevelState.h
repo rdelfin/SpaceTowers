@@ -11,6 +11,7 @@
 #include "GameState.h"
 #include "Player.h"
 #include "Level.h"
+#include "PauseMenu.h"
 
 /*!
  *  Class that represents a game level's state. It creates the state based on the parameters passed
@@ -29,4 +30,5 @@ public:
 private:
     Level level;
 	bool paused;
+	PauseMenu pauseMenu;
 };

@@ -1,5 +1,6 @@
 #include "Sprite.h"
 #include "GameTime.h"
+#include "stdafx.h"
 #pragma once
 class GameObject
 {

@@ -21,13 +21,13 @@ PlanetMenuState::PlanetMenuState(Vector2 screenSize, ALLEGRO_KEYBOARD_STATE* key
 void PlanetMenuState::Update(GameTime* gameTime)
 {
     bool anyHovered = false;
-    for(int i = 0; i < planets.size(); i++)
+    for(unsigned int i = 0; i < planets.size(); i++)
     {
         planets[i].UpdateHover(mouseState, prevMouseState);
         anyHovered = anyHovered || planets[i].isHovered();
     }
     
-    for(int i = 0; i < planets.size(); i++)
+    for(unsigned int i = 0; i < planets.size(); i++)
         planets[i].Update(gameTime, anyHovered);
     
     for(int i = 0; i < planets.size(); i++)
@@ -44,7 +44,7 @@ void PlanetMenuState::Draw()
 {
     al_draw_bitmap(background, 0, 0, NULL);
     
-    for(int i = 0; i < planets.size(); i++)
+    for(unsigned int i = 0; i < planets.size(); i++)
         planets[i].Draw();
 }
 

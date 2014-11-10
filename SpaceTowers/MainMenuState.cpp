@@ -57,13 +57,13 @@ void MainMenuState::Update(GameTime* gameTime)
     
     //Planets
     bool anyHovered = false;
-    for(int i = 0; i < planets.size(); i++)
+    for(unsigned int i = 0; i < planets.size(); i++)
     {
         planets[i].UpdateHover(mouseState, prevMouseState);
         anyHovered = anyHovered || planets[i].isHovered();
     }
     
-    for(int i = 0; i < planets.size(); i++)
+    for(unsigned int i = 0; i < planets.size(); i++)
         planets[i].Update(gameTime, anyHovered);
     
 }
@@ -74,7 +74,7 @@ void MainMenuState::Draw()
     al_draw_bitmap(background, 0, 0, 0);
     
     //Planets
-    for(int i = 0; i < planets.size(); i++)
+    for(unsigned int i = 0; i < planets.size(); i++)
         planets[i].Draw();
     
     //Doors
