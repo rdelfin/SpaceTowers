@@ -30,6 +30,11 @@ $RECYCLE.BIN/
 *.suo
 *.user
 
+# Linux files
+*.o
+*.a
+!*.*
+
 # =========================
 # Operating System Files
 # =========================
