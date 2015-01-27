@@ -27,10 +27,10 @@ void CharacterInfo::updateButton(GameTime* gameTime, ALLEGRO_MOUSE_STATE* mouseS
 void CharacterInfo::drawButton()
 {
     button.Draw(Vector2());
-	
+
 	//Text drawing
 	char text[10];
-	sprintf_s(text, "$%d", cost);
+	sprintf(text, "$%ld", cost);
 	int width = al_get_text_width(priceFont, text);
 	int textX = button.position.x + button.getFrameSize().x / 2 - width / 2;
 	int textY = button.position.y + button.getFrameSize().y + TEXT_SPACE;
@@ -45,10 +45,10 @@ bool CharacterInfo::clickedButton()
 bool CharacterInfo::buyCharacter(COINS* coins)
 {
     bool result = *coins >= cost;
-    
+
     if(result)
         *coins -= cost;
-    
+
     return result;
 }
 

@@ -14,7 +14,7 @@ PlanetMenuState::PlanetMenuState(Vector2 screenSize, ALLEGRO_KEYBOARD_STATE* key
     : GameState(screenSize, keyState, prevKeyState, mouseState, prevMouseState)
 {
     background = al_load_bitmap("assets/img/selectGameScreen/Starfield.png");
-    
+
     this->planets = planets;
 }
 
@@ -26,10 +26,10 @@ void PlanetMenuState::Update(GameTime* gameTime)
         planets[i].UpdateHover(mouseState, prevMouseState);
         anyHovered = anyHovered || planets[i].isHovered();
     }
-    
+
     for(unsigned int i = 0; i < planets.size(); i++)
         planets[i].Update(gameTime, anyHovered);
-    
+
     for(int i = 0; i < planets.size(); i++)
     {
         if(planets[i].isPressed())
@@ -42,8 +42,8 @@ void PlanetMenuState::Update(GameTime* gameTime)
 
 void PlanetMenuState::Draw()
 {
-    al_draw_bitmap(background, 0, 0, NULL);
-    
+    al_draw_bitmap(background, 0, 0, 0);
+
     for(unsigned int i = 0; i < planets.size(); i++)
         planets[i].Draw();
 }

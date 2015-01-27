@@ -12,18 +12,21 @@
 MainMenuState::MainMenuState(Vector2 screenSize, ALLEGRO_KEYBOARD_STATE* keyState, ALLEGRO_KEYBOARD_STATE* prevKeyState, ALLEGRO_MOUSE_STATE* mouseState, ALLEGRO_MOUSE_STATE* prevMouseState, ALLEGRO_FONT* font)
     : GameState(screenSize, keyState, prevKeyState, mouseState, prevMouseState)
 {
+
+    cout << "Main State initialized" << endl;
     this->font = font;
-    
+
     background = al_load_bitmap("assets/img/selectGameScreen/Starfield.png");
-    leftDoor = GameObject("assets/img/selectGameScreen/leftblastdoor.png", Vector2(1, 1), 30, Vector2());
+    leftDoor = GameObject("assets/img/selectGameScreen/Leftblastdoor.png", Vector2(1, 1), 30, Vector2());
     rightDoor = GameObject("assets/img/selectGameScreen/Rightblastdoor.png", Vector2(1, 1), 30, Vector2(457, 0));
-    
+
     //457 = 559 (size of left door) - 102 (overlap between doors)
-    
+
     mainButton = Button("assets/img/selectGameScreen/StartButton.png", Vector2(1, 1), 100, "assets/img/selectGameScreen/StartButton.png", Vector2(1, 1), 100, "assets/img/selectGameScreen/StartButtonHover.png", Vector2(2, 1), 100, Vector2(300, 200), true);
-    
+
+    cout << "Main button loaded" << endl;
     opening = false;
-    
+
     /***********************************************************************************************
      ****************************************** Planets ********************************************
      ***********************************************************************************************/
@@ -40,8 +43,8 @@ void MainMenuState::Update(GameTime* gameTime)
     leftDoor.Update(gameTime);
     rightDoor.Update(gameTime);
     mainButton.Update(gameTime, mouseState, prevMouseState);
-    
-    
+
+
     //Open sequence code
     if(opening)
     {
@@ -50,11 +53,11 @@ void MainMenuState::Update(GameTime* gameTime)
     }
     else if(mainButton.wasJustReleased())
         opening = true;
-    
+
     //End state
     if(rightDoor.position.x > getScreenSize().x)
         stop();
-    
+
     //Planets
     bool anyHovered = false;
     for(unsigned int i = 0; i < planets.size(); i++)
@@ -62,30 +65,30 @@ void MainMenuState::Update(GameTime* gameTime)
         planets[i].UpdateHover(mouseState, prevMouseState);
         anyHovered = anyHovered || planets[i].isHovered();
     }
-    
+
     for(unsigned int i = 0; i < planets.size(); i++)
         planets[i].Update(gameTime, anyHovered);
-    
+
 }
 
 void MainMenuState::Draw()
 {
     //Background
     al_draw_bitmap(background, 0, 0, 0);
-    
+
     //Planets
     for(unsigned int i = 0; i < planets.size(); i++)
         planets[i].Draw();
-    
+
     //Doors
     leftDoor.Draw(Vector2());
     rightDoor.Draw(Vector2());
-    
+
     //Button
     if(!opening)
         mainButton.Draw(Vector2());
-    
-    
+
+
 }
 
 vector<PlanetButton> MainMenuState::getPlanets() { return planets; }

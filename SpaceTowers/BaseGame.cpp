@@ -2,9 +2,9 @@
 #include "BaseGame.h"
 #include "Utility.h"
 
-BaseGame::BaseGame() : fps(30)
+BaseGame::BaseGame() : BaseGame(Vector2(1024, 720), WINDOW, "Title", 30)
 {
-	this->BaseGame::BaseGame(Vector2(1024, 720), WINDOW, "Title", 30);
+	//this->BaseGame::BaseGame(Vector2(1024, 720), WINDOW, "Title", 30);
 }
 
 BaseGame::BaseGame(Vector2 windowSize, ScreenType screenType, string screenTitle, double fps) : fps(fps),
@@ -15,7 +15,7 @@ BaseGame::BaseGame(Vector2 windowSize, ScreenType screenType, string screenTitle
 
 	al_get_keyboard_state(&keyState);
 	al_get_mouse_state(&mouseState);
-	
+
 	eventQueue = al_create_event_queue();
 	timer = al_create_timer(1/this->fps);
 
@@ -30,7 +30,7 @@ void BaseGame::initScreen(ScreenType screenType, string screenTitle)
 {
 	if(!al_init())
 	{
-		al_show_native_message_box(NULL, "Error", "Error", "Could not initialize Allegro 5", NULL, NULL);
+		al_show_native_message_box(NULL, "Error", "Error", "Could not initialize Allegro 5", NULL, 0);
 		exit(-1);
 	}
 
@@ -49,7 +49,7 @@ void BaseGame::initScreen(ScreenType screenType, string screenTitle)
 
 	if(!display)
 	{
-		al_show_native_message_box(display, "Error", "Error", "Could not create Allegro Window", NULL, NULL);
+		al_show_native_message_box(display, "Error", "Error", "Could not create Allegro Window", NULL, 0);
 		exit(-1);
 	}
 }
@@ -66,8 +66,8 @@ void BaseGame::initModules()
 		al_install_audio() &&
 		al_install_joystick()))
 	{
-		al_show_native_message_box(display, "Error!", "ERROR 42 (0x2a)", 
-			"Error while loading allegro modules. Please contact distributor and inform them of this error.", NULL, NULL);
+		al_show_native_message_box(display, "Error!", "ERROR 42 (0x2a)",
+			"Error while loading allegro modules. Please contact distributor and inform them of this error.", NULL, 0);
 		exit(42);
 	}
 }

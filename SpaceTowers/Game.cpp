@@ -7,7 +7,7 @@
 Game::Game()
     : BaseGame(Vector2(1024, 768), WINDOW, "Space Towers WORKING TITLE", 30)
 {
-    font = al_load_font("assets/fonts/Harabara.ttf", 18, NULL);
+    font = al_load_font("assets/fonts/Harabara.ttf", 18, 0);
     gameState = new MainMenuState(getWindowSize(), &keyState, &prevKeyState, &mouseState, &prevMouseState, font);
     state = 0;
 }
@@ -15,7 +15,7 @@ Game::Game()
 void Game::Update(GameTime* gameTime)
 {
     gameState->Update(gameTime);
-    
+
     if(!gameState->isRunning())
     {
         if(state == 0)
@@ -29,7 +29,7 @@ void Game::Update(GameTime* gameTime)
         {
             PlanetMenuState* castedState = (PlanetMenuState*)gameState;
             int endState = castedState->getEndState();
-            
+
             if(endState == 1)
             {
                 state++;
@@ -61,6 +61,6 @@ int main(int argc, char** argv)
     BaseGame* game = new Game();
 	game->run();
 	delete game;
-    
+
     return 0;
 }

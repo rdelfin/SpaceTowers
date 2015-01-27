@@ -7,8 +7,8 @@ GameState::GameState(Vector2 screenSize, ALLEGRO_KEYBOARD_STATE* keyState, ALLEG
 	running = true;
 	this->keyState = keyState;
 	this->prevKeyState = prevKeyState;
-    this->mouseState = mouseState;
-    this->prevMouseState = prevMouseState;
+	this->mouseState = mouseState;
+	this->prevMouseState = prevMouseState;
 }
 
 Vector2 GameState::getScreenSize() { return screenSize; }

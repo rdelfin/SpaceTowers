@@ -25,12 +25,12 @@ Level::Level(Vector2 screenSize)
     infoComputer.push_back(new SuperSpaceMarineInfo(Vector2(80, 700)));
     infoHuman.push_back(new SpaceMarineInfo(Vector2(20, 700)));
     infoHuman.push_back(new SuperSpaceMarineInfo(Vector2(80, 700)));
-    
+
     this->camPos = Vector2();
 	this->screenSize = screenSize;
     this->human = new HumanPlayer("assets/img/levels/towers/left1.png", 50, 78, Vector2(2000, 768), 0, 1, 100, true, infoHuman, 1000);
     this->computer = new ComputerPlayer("assets/img/levels/towers/right1.png", 50, 78, Vector2(2000, 768), 0, 1, 100, false, infoComputer, 1000);
-    
+
     background = al_load_bitmap("assets/img/levels/backgrounds/1.png");
 }
 
@@ -40,7 +40,7 @@ void Level::Update(GameTime *gameTime, ALLEGRO_KEYBOARD_STATE *keyState, ALLEGRO
 		human->Update(gameTime, keyState, prevKeyState, mouseState, prevMouseState, computer);
 	if(computer->alive())
 		computer->Update(gameTime, keyState, prevKeyState, mouseState, prevMouseState, human);
-    
+
     bool right = al_key_down(keyState, ALLEGRO_KEY_RIGHT);
     bool left = al_key_down(keyState, ALLEGRO_KEY_LEFT);
     if(right != left)
@@ -59,8 +59,8 @@ void Level::Update(GameTime *gameTime, ALLEGRO_KEYBOARD_STATE *keyState, ALLEGRO
 
 void Level::Draw()
 {
-    al_draw_bitmap(background, -camPos.x, -camPos.y, NULL);
-    
+    al_draw_bitmap(background, -camPos.x, -camPos.y, 0);
+
     human->Draw(camPos);
     computer->Draw(camPos);
 }
